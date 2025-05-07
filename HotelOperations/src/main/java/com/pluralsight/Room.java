@@ -69,7 +69,7 @@ public class Room {
 //        occupied = true;
 //        dirty = true;
 //        System.out.println("Guest checked in, Room is now occupied");
-        return false;
+        return true;
     }
 
 

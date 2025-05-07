@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
    private String department;
    private double payRate;
    private float hoursWorked;
-   private Double currentlyPunchedOut = null;
 
 
       public Employee(int employeeId, String name, String department, double payRate) {
