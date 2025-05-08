@@ -136,8 +136,6 @@ public class Main {
         if (h2.getValue() == 21) {
             System.out.println("\n" +ColorCodes.BLUE + playerTwo + " has got to 21!" + ColorCodes.RESET);
             scoringSystem();
-
-            
         } else {
             System.out.println("\n"+ playerTwo + " You have a value of " + h2.getValue());
             do {
