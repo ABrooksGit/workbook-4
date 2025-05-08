@@ -5,18 +5,12 @@ public class Main {
     private static Deck d = new Deck();
 
 
-
     private static Card c1;
     private static Card c2;
 
 
-
-
-
     private static Hand h1;
     private static Hand h2;
-
-
 
 
     private static String playerOne;
@@ -82,7 +76,7 @@ public class Main {
         c1.flip();
         display(c1);
         //System.out.println(c1.getPointValue());
-        Card c2 = d.deal();
+        c2 = d.deal();
         c2.flip();
         display(c2);
         //System.out.println(c2.getPointValue());
@@ -101,16 +95,16 @@ public class Main {
 
     public static void playerTwo(){
         h2 = new Hand();
+        c1 = d.deal();
+        c1.flip();
+        display(c1);
+        //System.out.println(c2.getPointValue());
         c2 = d.deal();
         c2.flip();
         display(c2);
-        //System.out.println(c2.getPointValue());
-        Card c3 = d.deal();
-        c3.flip();
-        display(c3);
         //System.out.println(c3.getPointValue());
+        h2.deal(c1);
         h2.deal(c2);
-        h2.deal(c3);
         if(h2.getValue() == 21) {
             System.out.println(ColorCodes.BLUE + h2.getValue() + ColorCodes.RESET);
         } else{
@@ -157,6 +151,9 @@ public class Main {
            } while (!choice.equalsIgnoreCase("STAY") && h1.getValue() <= 21);
        }
    }
+
+
+
 
 
 
