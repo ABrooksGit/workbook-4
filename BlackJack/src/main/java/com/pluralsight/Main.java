@@ -99,7 +99,6 @@ public class Main {
 
    public static void hitOrStayPlayerOne() {
        String choice;
-
        if (h1.getValue() == 21) {
            System.out.println("\n" +ColorCodes.BLUE + playerOne + " has got to 21!" + ColorCodes.RESET);
            hitOrStayPlayerTwo();
