@@ -32,26 +32,4 @@ public class Hand {
         return total;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
