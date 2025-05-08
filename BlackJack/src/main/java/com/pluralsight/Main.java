@@ -4,13 +4,20 @@ public class Main {
     private static Console console = new Console();
     private static Deck d = new Deck();
 
+
+
     private static Card c1;
     private static Card c2;
 
 
 
+
+
     private static Hand h1;
     private static Hand h2;
+
+
+
 
     private static String playerOne;
     private static String playerTwo;
@@ -20,37 +27,52 @@ public class Main {
 
     public static void main(String[] args) {
 
-        startOfGame();
+        howManyPlayers();
+
+    }
 
 
+    public static void howManyPlayers(){
+        int prompt;
+        do {
+            System.out.println(ColorCodes.CYAN + "2 players only ( 0 to quit out)" + ColorCodes.RESET);
+            prompt = console.promptForInt("How many players are participating? ");
 
+            switch(prompt){
+                case 1: System.out.println("Not Enough Players");
+                break;
+                case 2: startOfGame();
+                break;
+                case 0: System.out.println("Quitting application");
+                break;
+                default: System.out.println("This is only playable with two players");
+            }
 
-        hitOrStayPlayerOne();
+        } while (prompt != 0);
 
 
     }
 
 
+
     public static void startOfGame(){
-        console.promptForInt("How many players are participating? ");
 
         playerOne = console.promptForString("Player 1 enter your name: ");
-
         playerTwo = console.promptForString("Player 2 enter your name: ");
+
 
         d.shuffle();
 
         playerOne();
 
 
-
-
         playerTwo();
 
-
+        hitOrStayPlayerOne();
 
 
     }
+
 
 
 
@@ -74,6 +96,8 @@ public class Main {
 
 
     }
+
+
 
     public static void playerTwo(){
         h2 = new Hand();
@@ -117,6 +141,11 @@ public class Main {
                        if (h1.getValue() > 21) {
                            System.out.println("\n" + ColorCodes.PURPLE + playerOne + " got over 21" + ColorCodes.RESET);
                            hitOrStayPlayerTwo();
+                           return;
+                       } else if (h1.getValue() == 21) {
+                           System.out.println("\n" +ColorCodes.BLUE + playerOne + " has got to 21!" + ColorCodes.RESET);
+                           hitOrStayPlayerTwo();
+                           return;
                        }
                        break;
                    case "STAY":
@@ -128,6 +157,8 @@ public class Main {
            } while (!choice.equalsIgnoreCase("STAY") && h1.getValue() <= 21);
        }
    }
+
+
 
     public static void hitOrStayPlayerTwo() {
         String choice;
@@ -149,6 +180,11 @@ public class Main {
                         if (h2.getValue() > 21) {
                             System.out.println("\n" + ColorCodes.PURPLE + playerTwo + " got over 21" + ColorCodes.RESET);
                             scoringSystem();
+                            return;
+                        } else if (h2.getValue() == 21) {
+                            System.out.println("\n" +ColorCodes.BLUE + playerTwo + " has got to 21!" + ColorCodes.RESET);
+                            scoringSystem();
+                            return;
                         }
                         break;
                     case "STAY":
@@ -189,6 +225,7 @@ public class Main {
         }
 
     }
+
 
 
     public static void display(Card c){
